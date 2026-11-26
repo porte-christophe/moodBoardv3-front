@@ -11,4 +11,4 @@ jobs:
     steps:
 
       - name: echo version
-        run: echo "${{ steps.release.outputs.tag.name }}"
+        run: echo "coucou"
