@@ -1,0 +1,14 @@
+name: deploy-front
+
+on:
+  push:
+    tags:
+      - v**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: echo version
+        run: echo $GITHUB_REF_NAME >> README.md
