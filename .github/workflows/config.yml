@@ -25,9 +25,8 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v6
         with:
-          working-directory: front/frontend
           name: build-artifacts
-          path: dist
+          path: dist/
 
       - name: SSH
         uses: appleboy/ssh-action@v0.1.10
@@ -35,5 +34,5 @@ jobs:
           host: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "dist/*"
+          source: "front/frontend/dist/*"
           target: "/var/www/html"
