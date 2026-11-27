@@ -23,6 +23,7 @@ jobs:
         run: npm run build --production
 
       - name: Upload build artifacts
+        working-directory: front/frontend
         uses: actions/upload-artifact@v6
         with:
           name: build-artifacts
