@@ -3,7 +3,7 @@ name: deploy-front
 on:
   push:
     tags:
-      - v**
+      - 'v[0-9]+.[0-9]+.[0-9]'
 
 jobs:
   deploy:
@@ -15,5 +15,21 @@ jobs:
           node-version: 22
           cache: "npm"
 
-      - name: echo version
-        run: echo "coucou"
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build --production
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: build-artifacts
+          path: dist
+
+      - name: SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ inputs.hostname }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
