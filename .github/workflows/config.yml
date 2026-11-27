@@ -15,7 +15,7 @@ jobs:
           node-version: 22
 
       - name: Install
-        run: npm ci -t front/frontend
+        run: npm ci -t /front/frontend
 
       - name: Build
         run: npm run build --production
