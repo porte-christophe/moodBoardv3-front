@@ -26,7 +26,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: build-artifacts
-          path: dist/
+          path: front/frontend/dist/
 
       - name: SSH
         uses: appleboy/ssh-action@v0.1.10
