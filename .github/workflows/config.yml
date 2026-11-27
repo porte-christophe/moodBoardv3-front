@@ -15,7 +15,7 @@ jobs:
           node-version: 22
 
       - name: Install
-        working-directory: /front/frontend
+        working-directory: front/frontend
         run: npm ci
 
       - name: Build
